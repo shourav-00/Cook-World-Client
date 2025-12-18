@@ -15,7 +15,7 @@ const TestimonialCard = ({ review }) => {
         <div className="divider my-4"></div>
 
         <div className="flex items-center gap-3">
-          <div className="border-4 border-orange-400 rounded-full">
+          <div className="border-4 border-yellow-400 rounded-full">
             <img src={reviewerImage} alt="" className="rounded-full w-14 " />
           </div>
           <div>
@@ -23,7 +23,7 @@ const TestimonialCard = ({ review }) => {
 
             <p className="flex gap-2 justify-center items-center">
               {" "}
-              Ratting : <FaStar className="text-orange-400"/>
+              Ratting : <FaStar className="text-yellow-400"/>
               {rating}{" "}
             </p>
           </div>

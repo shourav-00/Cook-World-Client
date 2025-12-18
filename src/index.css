@@ -4,9 +4,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-
-
 .swiper-button-next,
 .swiper-button-prev {
-  color: #38a169 !important;
+  color:#c9b200 !important;
 }

@@ -28,7 +28,7 @@ const Home = () => {
         <Testimonial />
       </section> */}
        <section className="my-10">
-        <h1 className="font-bold text-center mb-8 text-5xl text-orange-400">
+        <h1 className="font-bold text-center mb-8 text-5xl text-yellow-400">
           Collaborate With{" "}
         </h1>
         <Brands />

@@ -1,52 +1,75 @@
 import React from "react";
 import { Link } from "react-router";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import logo from '../../assets/logo.png';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaHeart } from "react-icons/fa";
+import logo from '../../../public/Logo2 .png';
 
 const Footer = () => {
   return (
-    <div className="relative pt-16 mt-20">
-      <footer className="bg-gray-900 text-gray-300">
-        <div className="container mx-auto px-4 pt-20 pb-12">
+    <div className="relative pt-16 mt-20 transform rotate-180 origin-center">
+      <footer className="bg-gradient-to-b from-black via-gray-900 to-black text-gray-300">
+        <div className="container mx-auto px-4 pt-16 pb-12 transform -rotate-180">
+          
+          {/* Top Decorative Line */}
+          <div className="flex justify-center mb-12">
+            <div className="h-1 w-32 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full"></div>
+          </div>
+
           {/* Newsletter Section */}
           <div className="w-full max-w-4xl mx-auto text-center mb-16 relative z-10">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 text-yellow-300 px-4 py-2 rounded-full mb-4 border border-yellow-700/50">
+              <span className="font-bold text-sm">STAY CONNECTED WITH LOVE</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Stay Updated with <span className="text-orange-500">Deliciousness</span>
+              Let's Create <span className="text-yellow-400">Food Memories</span> Together
             </h2>
-            <p className="mb-8 text-gray-400">Subscribe for exclusive offers, new menu alerts, and culinary tips.</p>
+            <p className="mb-8 text-gray-400 max-w-2xl mx-auto">
+              Subscribe for heartfelt recipes, special moments, and exclusive culinary journeys delivered with love
+            </p>
             <form className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <input
                 type="email"
-                placeholder="Enter your email"
-                className="input input-bordered w-full sm:w-80 rounded-full bg-gray-800 border-gray-700 text-white focus:outline-none focus:border-orange-500"
+                placeholder="Your email address for delicious updates"
+                className="input w-full sm:w-80 rounded-full bg-gray-800/50 border border-gray-700 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 placeholder-gray-500 px-6 py-3"
               />
-              <button className="btn btn-primary bg-orange-600 hover:bg-orange-700 border-none rounded-full px-8 text-white flex items-center gap-2">
-                Subscribe <FaPaperPlane />
+              <button className="btn bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 border-none rounded-full px-8 py-3 text-white font-semibold flex items-center gap-2 hover:shadow-lg hover:shadow-yellow-500/30 transition-all duration-300">
+                <span>Join Our Family</span>
+                <FaPaperPlane className="group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-t border-gray-800 pt-12">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 border-t border-gray-800/50 pt-12">
+            
             {/* Brand Column */}
             <div className="space-y-4">
-              <Link to="/" className="flex items-center gap-2 mb-2">
-                <img src={logo} alt="ChefCorner Logo" className="w-12 h-12 rounded-full" />
-                <h3 className="text-2xl font-bold text-white">Chef<span className="text-orange-500">Corner</span></h3>
+              <Link to="/" className="flex items-center gap-3 mb-4 group">
+                <div className="relative">
+                  <img src={logo} alt="Chef-Bazar Logo" className="w-14 h-14 rounded-full border-2 border-yellow-500 group-hover:scale-110 transition-transform duration-300" />
+                  <div className="absolute -top-1 -right-1 w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center">
+                    <FaHeart className="text-white text-xs" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">Chef<span className="text-yellow-400">Bazar</span></h3>
+                  <p className="text-yellow-500 text-sm">Where Hearts Meet Flavors</p>
+                </div>
               </Link>
-              <p className="text-sm leading-relaxed">
-                Bringing the finest culinary experiences directly to your doorstep. Fresh ingredients, passionate chefs, and unforgettable flavors.
+              <p className="text-sm leading-relaxed text-gray-400">
+                More than a food service—we're creators of moments, weavers of memories, 
+                and believers in the power of shared meals to connect souls.
               </p>
-              <div className="flex gap-4 mt-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
+              <div className="flex gap-3 mt-6">
+                <a href="#" className="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-yellow-600 hover:text-white transition-all duration-300 border border-gray-700 hover:border-yellow-500">
                   <FaFacebookF />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
+                <a href="#" className="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-yellow-600 hover:text-white transition-all duration-300 border border-gray-700 hover:border-yellow-500">
                   <FaTwitter />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
+                <a href="#" className="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-yellow-600 hover:text-white transition-all duration-300 border border-gray-700 hover:border-yellow-500">
                   <FaInstagram />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-600 hover:text-white transition-all duration-300">
+                <a href="#" className="w-10 h-10 rounded-full bg-gray-800/50 flex items-center justify-center hover:bg-yellow-600 hover:text-white transition-all duration-300 border border-gray-700 hover:border-yellow-500">
                   <FaLinkedinIn />
                 </a>
               </div>
@@ -54,66 +77,100 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-6">Quick Links</h4>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                Navigate with Heart
+              </h4>
               <ul className="space-y-3">
                 <li>
-                  <Link to="/" className="hover:text-orange-500 transition-colors flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Home
+                  <Link to="/" className="hover:text-yellow-400 transition-colors duration-300 flex items-center gap-3 group">
+                    <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-yellow-500">
+                      <span className="text-xs">🏠</span>
+                    </div>
+                    <span>Home of Flavors</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/meals" className="hover:text-orange-500 transition-colors flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> Meals
+                  <Link to="/meals" className="hover:text-yellow-400 transition-colors duration-300 flex items-center gap-3 group">
+                    <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-yellow-500">
+                      <span className="text-xs">🍽️</span>
+                    </div>
+                    <span>Heartfelt Meals</span>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className="hover:text-orange-500 transition-colors flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span> About Us
+                  <Link to="/about" className="hover:text-yellow-400 transition-colors duration-300 flex items-center gap-3 group">
+                    <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-yellow-500">
+                      <span className="text-xs"></span>
+                    </div>
+                    <span>Our Story</span>
                   </Link>
                 </li>
-               
               </ul>
             </div>
 
-            {/* Contact Info */}
+            {/* Contact Info - UPDATED */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-6">Contact Us</h4>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                Connect with Love
+              </h4>
               <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <FaMapMarkerAlt className="text-orange-500 mt-1" />
-                  <span>Dhaka, Bangladesh -1310</span>
+                <li className="flex items-start gap-3 group hover:text-yellow-400 transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-full bg-yellow-900/30 flex items-center justify-center mt-1 group-hover:bg-yellow-500">
+                    <FaMapMarkerAlt className="text-yellow-400 group-hover:text-white text-sm" />
+                  </div>
+                  <div>
+                    <span className="font-medium">Dhaka, Bangladesh</span>
+                    <div className="text-gray-500 text-sm">Where flavors find their home</div>
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <FaPhoneAlt className="text-orange-500" />
-                  <span>+880 1824225331</span>
+                <li className="flex items-center gap-3 group hover:text-yellow-400 transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-full bg-yellow-900/30 flex items-center justify-center group-hover:bg-yellow-500">
+                    <FaPhoneAlt className="text-yellow-400 group-hover:text-white text-sm" />
+                  </div>
+                  <div>
+                    <span className="font-medium">01784535301</span>
+                    <div className="text-gray-500 text-sm">Always here for you</div>
+                  </div>
                 </li>
-                <li className="flex items-center gap-3">
-                  <FaEnvelope className="text-orange-500" />
-                  <span>alifhossinsajjad123456@gmail.com</span>
+                <li className="flex items-center gap-3 group hover:text-yellow-400 transition-colors duration-300">
+                  <div className="w-8 h-8 rounded-full bg-yellow-900/30 flex items-center justify-center group-hover:bg-yellow-500">
+                    <FaEnvelope className="text-yellow-400 group-hover:text-white text-sm" />
+                  </div>
+                  <div>
+                    <span className="font-medium text-sm">shouravchowdhury400@gmail.com</span>
+                    <div className="text-gray-500 text-sm">Share your heart with us</div>
+                  </div>
                 </li>
               </ul>
             </div>
 
-            {/* App Download (Dummy) */}
+            {/* App Download */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-6">Get the App</h4>
-              <p className="text-sm mb-4">Order on the go with our mobile app. Available for iOS and Android.</p>
+              <h4 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                Love On The Go
+              </h4>
+              <p className="text-sm mb-4 text-gray-400">
+                Carry the warmth of home-cooked love in your pocket. Available wherever you are.
+              </p>
               <div className="flex flex-col gap-3">
-                <button className="btn btn-outline border-gray-600 text-white hover:bg-white hover:text-black hover:border-white justify-start normal-case">
-                  <svg viewBox="0 0 384 512" fill="currentColor" className="w-6 h-6 mr-2">
-                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z" />
-                  </svg>
-                  <div>
-                    <div className="text-xs">Download on the</div>
+                <button className="btn bg-gray-800/50 border border-gray-700 text-white hover:bg-gradient-to-r hover:from-yellow-900/50 hover:to-yellow-800/50 hover:border-yellow-500 justify-start normal-case hover:scale-[1.02] transition-all duration-300">
+                  <div className="bg-black p-2 rounded-lg mr-3">
+                    <span className="text-2xl"></span>
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-400">Download on the</div>
                     <div className="text-lg font-bold leading-none">App Store</div>
                   </div>
                 </button>
-                <button className="btn btn-outline border-gray-600 text-white hover:bg-white hover:text-black hover:border-white justify-start normal-case">
-                  <svg viewBox="0 0 512 512" fill="currentColor" className="w-6 h-6 mr-2">
-                    <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z" />
-                  </svg>
-                  <div>
-                    <div className="text-xs">Get it on</div>
+                <button className="btn bg-gray-800/50 border border-gray-700 text-white hover:bg-gradient-to-r hover:from-yellow-900/50 hover:to-yellow-800/50 hover:border-yellow-500 justify-start normal-case hover:scale-[1.02] transition-all duration-300">
+                  <div className="bg-black p-2 rounded-lg mr-3">
+                    <span className="text-2xl"></span>
+                  </div>
+                  <div className="text-left">
+                    <div className="text-xs text-gray-400">Get it on</div>
                     <div className="text-lg font-bold leading-none">Google Play</div>
                   </div>
                 </button>
@@ -121,13 +178,24 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-            <p>&copy; {new Date().getFullYear()} ChefCorner. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <Link to="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="#" className="hover:text-white transition-colors">Terms of Service</Link>
-              <Link to="#" className="hover:text-white transition-colors">Cookie Policy</Link>
+          {/* Bottom Copyright */}
+          <div className="border-t border-gray-800/30 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <span>&copy; {new Date().getFullYear()} ChefBazar.</span>
+              <span className="text-yellow-400">All emotions reserved.</span>
             </div>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <Link to="#" className="hover:text-yellow-400 transition-colors duration-300">Heart Privacy</Link>
+              <Link to="#" className="hover:text-yellow-400 transition-colors duration-300">Love Terms</Link>
+              <Link to="#" className="hover:text-yellow-400 transition-colors duration-300">Cookie Care</Link>
+            </div>
+          </div>
+
+          {/* Final Love Message */}
+          <div className="mt-8 text-center">
+            <p className="text-gray-600 text-sm italic">
+              Made with Love for every soul that believes in the magic of shared meals
+            </p>
           </div>
         </div>
       </footer>

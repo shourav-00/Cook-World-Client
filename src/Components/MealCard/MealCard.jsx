@@ -3,7 +3,7 @@ import { MdFastfood } from "react-icons/md";
 import { Link } from "react-router";
 
 const MealCard = ({ meal }) => {
-  const { ChefName, FoodImage, Price, Rating, DeliveryArea, ChefId, _id } =
+  const { ChefName,FoodName, FoodImage, Price, Rating, DeliveryArea, ChefId, _id } =
     meal;
 
 
@@ -26,17 +26,17 @@ const MealCard = ({ meal }) => {
       {/* Content Section */}
       <div className="p-6 flex flex-col flex-grow relative">
         {/* Rating Badge */}
-        <div className="absolute -top-5 left-6 bg-amber-500 text-white px-3 py-1 rounded-lg shadow-md flex items-center gap-1 text-sm font-bold">
+        <div className="absolute -top-5 left-6 bg-yellow-500 text-white px-3 py-1 rounded-lg shadow-md flex items-center gap-1 text-sm font-bold">
           <span>⭐</span> {Rating}
         </div>
 
         <div className="mt-2 mb-4">
-          <h2 className="text-2xl font-bold text-gray-800 mb-1 group-hover:text-amber-600 transition-colors line-clamp-1">
-            {ChefName}
+          <h2 className="text-2xl font-bold text-gray-800 mb-1 group-hover:text-yellow-600 transition-colors line-clamp-1">
+            {FoodName}
           </h2>
           <p className="text-gray-500 text-sm font-medium">
-            Chef ID:{" "}
-            <span className="font-semibold text-gray-700">{ChefId}</span>
+            Chef:{" "}
+            <span className="font-semibold text-gray-700">{ChefName}</span>
           </p>
         </div>
 
@@ -63,7 +63,7 @@ const MealCard = ({ meal }) => {
         <div className="mt-auto">
           <Link
             to={`/meals-details/${_id}`}
-            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-amber-600 hover:to-amber-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-lg"
+            className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gray-900 to-gray-800 hover:from-yellow-500 hover:to-yellow-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-md group-hover:shadow-lg"
           >
             <span>View Details</span>
             <MdFastfood className="text-lg" />
@@ -75,3 +75,10 @@ const MealCard = ({ meal }) => {
 };
 
 export default MealCard;
+
+
+
+
+
+
+

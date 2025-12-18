@@ -588,7 +588,7 @@ const MyReview = () => {
               "Every review is a story from the heart, a memory shared, 
               and an emotion expressed through the language of food."
             </p>
-            <div className="text-yellow-600 font-semibold">
+            <div className="text-yellow-500 font-semibold">
               - Keep sharing your culinary love stories
             </div>
           </div>

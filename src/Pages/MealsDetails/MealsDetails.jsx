@@ -511,7 +511,7 @@ const MealsDetails = () => {
               </button>
             </div>
             {/* Price Badge */}
-            <div className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg">
+            <div className="absolute bottom-4 left-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg">
               ${meal.Price}
             </div>
           </div>
@@ -581,7 +581,7 @@ const MealsDetails = () => {
             <div className="flex gap-4 mt-auto">
               <Link
                 to={`/order/${meal._id}`}
-                className="flex-1 btn bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white border-none rounded-xl text-lg h-14 shadow-lg shadow-yellow-500/30"
+                className="flex-1 btn bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-500 hover:to-yellow-500 text-white border-none rounded-xl text-lg h-14 shadow-lg shadow-yellow-500/30"
               >
                 Order Now <FaShoppingCart className="ml-2" />
               </Link>

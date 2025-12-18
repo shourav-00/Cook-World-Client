@@ -388,7 +388,7 @@ const Meals = () => {
                   <h3 className="text-2xl font-bold text-gray-800 mb-4">{item.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{item.desc}</p>
                   <div className="mt-6 pt-6 border-t border-gray-100">
-                    <span className="text-yellow-600 text-sm font-semibold">Made with Love</span>
+                    <span className="text-yellow-500 text-sm font-semibold">Made with Love</span>
                   </div>
                 </div>
               ))}
@@ -404,7 +404,7 @@ const Meals = () => {
                 </p>
                 <div className="mt-8 flex items-center justify-center gap-4">
                   <div className="h-px w-20 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
-                  <span className="text-yellow-600 font-bold">Our Cooking Philosophy</span>
+                  <span className="text-yellow-500 font-bold">Our Cooking Philosophy</span>
                   <div className="h-px w-20 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
                 </div>
               </div>

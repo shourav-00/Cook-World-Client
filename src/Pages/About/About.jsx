@@ -14,7 +14,7 @@ const About = () => {
                     </p>
                 </div>
             </section>
-
+g
             {/* Our Story Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">

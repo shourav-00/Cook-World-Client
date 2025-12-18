@@ -16,7 +16,7 @@ import {
   FaMapMarkerAlt,
   FaGoodreads,
 } from "react-icons/fa";
-import registerImg from "../../assets/banner/img1.jpg"; // Using an existing image
+import registerImg from "../../../public/images-Car.jpg"; // Using an existing image
 
 const Register = () => {
   const {
@@ -119,7 +119,7 @@ const Register = () => {
               delivered to your door.
             </p>
             <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
               <div className="w-3 h-3 rounded-full bg-white"></div>
               <div className="w-3 h-3 rounded-full bg-white"></div>
             </div>
@@ -150,7 +150,7 @@ const Register = () => {
                 <input
                   type="text"
                   {...register("name", { required: "Name is required" })}
-                  className="input input-bordered w-full pl-10 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="input input-bordered w-full pl-10 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
                   placeholder="John Doe"
                 />
               </div>
@@ -175,7 +175,7 @@ const Register = () => {
                 <input
                   type="email"
                   {...register("email", { required: "Email is required" })}
-                  className="input input-bordered w-full pl-10 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="input input-bordered w-full pl-10 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
                   placeholder="john@example.com"
                 />
               </div>
@@ -201,7 +201,7 @@ const Register = () => {
                   })}
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                 />
-                <div className="flex flex-col items-center justify-center text-gray-500 group-hover:text-orange-500 transition-colors">
+                <div className="flex flex-col items-center justify-center text-gray-500 group-hover:text-yellow-500 transition-colors">
                   <FaCloudUploadAlt className="text-3xl mb-2" />
                   <span className="text-sm font-medium">
                     Click to upload image
@@ -228,7 +228,7 @@ const Register = () => {
                 </div>
                 <textarea
                   {...register("address", { required: "Address is required" })}
-                  className="textarea textarea-bordered w-full pl-10 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                  className="textarea textarea-bordered w-full pl-10 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
                   placeholder="123 Main St, City, Country"
                   rows="1"
                 ></textarea>
@@ -264,7 +264,7 @@ const Register = () => {
                           "Weak password (needs Upper, Lower, Number, Special)",
                       },
                     })}
-                    className="input input-bordered w-full pl-10 pr-10 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="input input-bordered w-full pl-10 pr-10 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
                     placeholder="••••••••"
                   />
                   <button
@@ -302,7 +302,7 @@ const Register = () => {
                         }
                       },
                     })}
-                    className="input input-bordered w-full pl-10 pr-10 focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    className="input input-bordered w-full pl-10 pr-10 focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500"
                     placeholder="••••••••"
                   />
                   <button
@@ -324,7 +324,7 @@ const Register = () => {
             <button
               type="submit"
               disabled={uploading}
-              className="btn btn-primary w-full bg-orange-600 hover:bg-orange-700 border-none text-white rounded-lg py-3 text-lg font-bold shadow-lg transform transition hover:scale-[1.02]"
+              className="btn btn-primary w-full bg-yellow-600 hover:bg-yellow-700 border-none text-white rounded-lg py-3 text-lg font-bold shadow-lg transform transition hover:scale-[1.02]"
             >
               {uploading ? (
                 <span className="loading loading-spinner"></span>
@@ -337,7 +337,7 @@ const Register = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-orange-600 font-bold hover:underline"
+                className="text-yellow-600 font-bold hover:underline"
               >
                 Log in
               </Link>

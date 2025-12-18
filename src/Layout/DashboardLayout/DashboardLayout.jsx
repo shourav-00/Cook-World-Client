@@ -1,346 +1,3 @@
-// import React, { useState } from "react";
-// import { Link, NavLink, Outlet } from "react-router";
-// import { BsBox } from "react-icons/bs";
-// import {
-//   FaBars,
-//   FaTimes,
-//   FaHome,
-//   FaUser,
-//   FaUsers,
-//   FaTasks,
-//   FaParachuteBox,
-//   FaSignOutAlt,
-//   FaHamburger,
-//   FaHeart,
-// } from "react-icons/fa";
-// import { FiGitPullRequest } from "react-icons/fi";
-// import { GiMeal } from "react-icons/gi";
-// import { GiFishCooked } from "react-icons/gi";
-// import {
-//   MdOutlinePayment,
-//   MdOutlineTaskAlt,
-//   MdAssignmentTurnedIn,
-//   MdDashboard,
-//   MdOutlineReviews,
-// } from "react-icons/md";
-// import useRole from "../../Hooks/useRole";
-// import useAuth from "../../Hooks/useAuth";
-// import logo from "../../assets/logo.png";
-// import { Archive, ArchiveRestore, Hamburger } from "lucide";
-
-// const DashBoardLayout = () => {
-//   const { role } = useRole();
-//   const { user, logOut } = useAuth();
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-//   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-//   const closeSidebar = () => setIsSidebarOpen(false);
-
-//   const navLinkClasses = ({ isActive }) =>
-//     `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
-//       isActive
-//         ? "bg-orange-600 text-white shadow-md shadow-orange-200"
-//         : "text-gray-600 hover:bg-orange-50 hover:text-orange-600"
-//     }`;
-
-//   return (
-//     <div className="min-h-screen bg-gray-50 flex font-sans">
-//       {/* Mobile Sidebar Overlay */}
-//       {isSidebarOpen && (
-//         <div
-//           className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm transition-opacity"
-//           onClick={closeSidebar}
-//         ></div>
-//       )}
-
-//       {/* Sidebar */}
-//       <aside
-//         className={`fixed top-0 left-0 z-50 h-full w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static flex flex-col ${
-//           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-//         }`}
-//       >
-//         {/* Logo Area */}
-//         <div className="h-20 flex items-center px-8 border-b border-gray-100">
-//           <Link to="/" className="flex items-center gap-3">
-//             <img
-//               src={logo}
-//               alt="Logo"
-//               className="w-10 h-10 rounded-full shadow-sm"
-//             />
-//             <span className="text-xl font-bold text-gray-800">
-//               Chef<span className="text-orange-600">Corner</span>
-//             </span>
-//           </Link>
-//           <button
-//             onClick={closeSidebar}
-//             className="lg:hidden ml-auto text-gray-500 hover:text-orange-600"
-//           >
-//             <FaTimes size={24} />
-//           </button>
-//         </div>
-
-//         {/* Navigation Links */}
-//         <div className="flex-1 overflow-y-auto py-6 px-4 space-y-1 custom-scrollbar">
-//           {/* Common Links */}
-//           <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-//             Menu
-//           </p>
-//           <NavLink
-//             to="/dashboard"
-//             end
-//             className={navLinkClasses}
-//             onClick={closeSidebar}
-//           >
-//             <MdDashboard className="text-xl" />
-//             <span>Overview</span>
-//           </NavLink>
-
-//           {/* User Links */}
-//           {role === "user" && (
-//             <>
-//               <NavLink
-//                 to="/dashboard/my-order"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaParachuteBox className="text-xl" />
-//                 <span>My Orders</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/payment-history"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <MdOutlinePayment className="text-xl" />
-//                 <span>Payment History</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/review"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <MdOutlineReviews className="text-xl" />
-//                 <span>My Review</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/favorite"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaHeart className="text-xl" />
-//                 <span>My Favorites</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/profile"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaUser className="text-xl" />
-//                 <span>Profile</span>
-//               </NavLink>
-//             </>
-//           )}
-
-//           {/* Chef Links */}
-//           {role === "chef" && (
-//             <>
-//               <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">
-//                 Chef Zone
-//               </p>
-
-//               <NavLink
-//                 to="/dashboard/request-order"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                <FiGitPullRequest className="text-xl"/>
-//                 <span>Request Order</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/my-meals"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <GiMeal  className="text-xl"/>
-//                 <span>My Meals</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/create-meals"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                <GiFishCooked className="text-xl"/>
-//                 <span>Create Meals</span>
-//               </NavLink>
-
-//               <NavLink
-//                 to="/dashboard/profile"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaUser className="text-xl" />
-//                 <span>Profile</span>
-//               </NavLink>
-
-//               {/* <NavLink
-//                 to="/dashboard/completed-deliveries"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <MdOutlineTaskAlt className="text-xl" />
-//                 <span>Completed Deliveries</span>
-//               </NavLink> */}
-//             </>
-//           )}
-
-//           {/* Admin Links */}
-//           {role === "admin" && (
-//             <>
-//               <p className="px-4 text-xs font-semibold text-gray-400 uppercase tracking-wider mt-6 mb-2">
-//                 Admin Panel
-//               </p>
-//               <NavLink
-//                 to="/dashboard/my-order"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <BsBox />
-//                 <span>My Order</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/payment-history"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <MdOutlinePayment className="text-xl" />
-//                 <span>Payment History</span>
-//               </NavLink>
-//               <NavLink
-//                 to="/dashboard/approve-chef"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaHamburger />
-//                 <span>Chef Request</span>
-//               </NavLink>
-
-//               <NavLink
-//                 to="/dashboard/users-management"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaUsers className="text-xl" />
-//                 <span>Users Management</span>
-//               </NavLink>
-
-//               <NavLink
-//                 to="/dashboard/profile"
-//                 className={navLinkClasses}
-//                 onClick={closeSidebar}
-//               >
-//                 <FaUser className="text-xl" />
-//                 <span>Profile</span>
-//               </NavLink>
-//             </>
-//           )}
-
-//           <div className="my-6 border-t border-gray-100"></div>
-
-//           {/* Home Link */}
-//           <NavLink to="/" className={navLinkClasses} onClick={closeSidebar}>
-//             <FaHome className="text-xl" />
-//             <span>Home</span>
-//           </NavLink>
-//         </div>
-
-//         {/* User Profile / Logout (Bottom) */}
-//         <div className="p-4 border-t border-gray-100 bg-gray-50/50">
-//           <Link
-//             to="/profile"
-//             className="flex items-center gap-3 mb-4 px-2 hover:bg-gray-100 p-2 rounded-lg transition-colors group"
-//           >
-//             <img
-//               src={user?.photoURL || "https://i.ibb.co/1Jgq0jZ/user.png"}
-//               alt="Profile"
-//               className="w-10 h-10 rounded-full border-2 border-white shadow-sm group-hover:border-orange-200 transition-colors"
-//             />
-//             <div className="overflow-hidden">
-//               <h4 className="text-sm font-bold text-gray-800 truncate group-hover:text-orange-600 transition-colors">
-//                 {user?.displayName || "User"}
-//               </h4>
-//               <span className="text-xs text-orange-600 bg-orange-100 px-2 py-0.5 rounded-full capitalize">
-//                 {role}
-//               </span>
-//             </div>
-//           </Link>
-//           <button
-//             onClick={() => {
-//               logOut();
-//             }}
-//             className="w-full flex items-center justify-center gap-2 bg-white border border-red-100 text-red-500 py-2.5 rounded-xl hover:bg-red-50 transition-colors font-medium text-sm"
-//           >
-//             <FaSignOutAlt />
-//             <span>Log Out</span>
-//           </button>
-//         </div>
-//       </aside>
-
-//       {/* Main Content */}
-//       <div className="flex-1 flex flex-col min-h-screen overflow-hidden">
-//         {/* Mobile Header */}
-//         <header className="lg:hidden h-16 bg-white shadow-sm flex items-center justify-between px-4 z-30 sticky top-0">
-//           <div className="flex items-center gap-3">
-//             <button
-//               onClick={toggleSidebar}
-//               className="text-gray-600 hover:text-orange-600 p-1"
-//             >
-//               <FaBars size={24} />
-//             </button>
-//             <span className="font-bold text-lg text-gray-800">Dashboard</span>
-//           </div>
-//           <Link to="/">
-//             <img src={logo} alt="Logo" className="w-8 h-8 rounded-full" />
-//           </Link>
-//         </header>
-
-//         {/* Content Area */}
-//         <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 md:p-8">
-//           <div className="max-w-7xl mx-auto">
-//             {/* Breadcrumb / Title (Optional, visible on Desktop) */}
-//             <div className="hidden lg:flex items-center justify-between mb-8">
-//               <div>
-//                 <h1 className="text-2xl font-bold text-gray-800">
-//                   Welcome Back, {user?.displayName}!
-//                 </h1>
-//                 <p className="text-gray-500 text-sm mt-1">
-//                   Here's what's happening with your account today.
-//                 </p>
-//               </div>
-//               <div className="text-sm text-gray-400">
-//                 {new Date().toLocaleDateString("en-US", {
-//                   weekday: "long",
-//                   year: "numeric",
-//                   month: "long",
-//                   day: "numeric",
-//                 })}
-//               </div>
-//             </div>
-
-//             <Outlet />
-//           </div>
-//         </main>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default DashBoardLayout;
-
-
-
-
-
-
 import React, { useState } from "react";
 import { Link, NavLink, Outlet } from "react-router";
 import { BsBox } from "react-icons/bs";
@@ -369,7 +26,6 @@ import {
 import useRole from "../../Hooks/useRole";
 import useAuth from "../../Hooks/useAuth";
 import logo from "../../assets/logo.png";
-import { Archive, ArchiveRestore, Hamburger } from "lucide";
 
 const DashBoardLayout = () => {
   const { role } = useRole();
@@ -380,53 +36,53 @@ const DashBoardLayout = () => {
   const closeSidebar = () => setIsSidebarOpen(false);
 
   const navLinkClasses = ({ isActive }) =>
-    `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+    `flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 font-medium ${
       isActive
-        ? "bg-yellow-500 text-white shadow-md shadow-yellow-200"
-        : "text-gray-600 hover:bg-yellow-50 hover:text-yellow-600"
+        ? "bg-amber-500 text-white shadow-sm"
+        : "text-gray-700 hover:bg-amber-100 hover:text-amber-700"
     }`;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-white flex">
       {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/40 z-40 lg:hidden backdrop-blur-sm transition-opacity duration-300"
+          className="fixed inset-0 bg-gray-900/30 z-40 lg:hidden"
           onClick={closeSidebar}
         ></div>
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-50 h-full w-72 bg-white/95 backdrop-blur-sm shadow-xl transform transition-all duration-300 ease-in-out lg:translate-x-0 lg:static flex flex-col border-r border-gray-200 ${
+        className={`fixed top-0 left-0 z-50 h-full w-64 bg-white shadow-lg transform transition-transform duration-200 ease-out lg:translate-x-0 lg:static flex flex-col ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Logo Area */}
-        <div className="h-20 flex items-center px-6 border-b border-gray-200">
-          <Link to="/" className="flex items-center gap-3">
+        <div className="h-16 flex items-center px-4 border-b">
+          <Link to="/" className="flex items-center gap-2">
             <img
               src={logo}
               alt="Logo"
-              className="w-10 h-10 rounded-full shadow-md ring-2 ring-yellow-200"
+              className="w-8 h-8"
             />
-            <span className="text-xl font-bold text-gray-800">
-              Chef<span className="text-yellow-500">Corner</span>
+            <span className="text-lg font-bold text-gray-800">
+              Chef<span className="text-amber-500">Hub</span>
             </span>
           </Link>
           <button
             onClick={closeSidebar}
-            className="lg:hidden ml-auto text-gray-500 hover:text-yellow-600 p-1.5 rounded-lg hover:bg-yellow-50"
+            className="lg:hidden ml-auto text-gray-600 hover:text-amber-600"
           >
-            <FaTimes size={22} />
+            <FaTimes size={18} />
           </button>
         </div>
 
         {/* Navigation Links */}
-        <div className="flex-1 overflow-y-auto py-5 px-3 space-y-1 custom-scrollbar">
+        <div className="flex-1 overflow-y-auto py-4 px-2 space-y-1">
           {/* Common Links */}
-          <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-            Main Menu
+          <p className="px-2 text-xs text-gray-500 uppercase tracking-wide mb-1">
+            Navigation
           </p>
           <NavLink
             to="/dashboard"
@@ -434,7 +90,7 @@ const DashBoardLayout = () => {
             className={navLinkClasses}
             onClick={closeSidebar}
           >
-            <MdDashboard className="text-xl" />
+            <MdDashboard className="text-lg" />
             <span>Dashboard</span>
           </NavLink>
 
@@ -446,7 +102,7 @@ const DashBoardLayout = () => {
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaParachuteBox className="text-xl" />
+                <FaParachuteBox className="text-lg" />
                 <span>My Orders</span>
               </NavLink>
               <NavLink
@@ -454,7 +110,7 @@ const DashBoardLayout = () => {
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <MdOutlinePayment className="text-xl" />
+                <MdOutlinePayment className="text-lg" />
                 <span>Payment History</span>
               </NavLink>
               <NavLink
@@ -462,23 +118,23 @@ const DashBoardLayout = () => {
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <MdOutlineReviews className="text-xl" />
-                <span>My Review</span>
+                <MdOutlineReviews className="text-lg" />
+                <span>My Reviews</span>
               </NavLink>
               <NavLink
                 to="/dashboard/favorite"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaHeart className="text-xl" />
-                <span>My Favorites</span>
+                <FaHeart className="text-lg" />
+                <span>Favorites</span>
               </NavLink>
               <NavLink
                 to="/dashboard/profile"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaUser className="text-xl" />
+                <FaUser className="text-lg" />
                 <span>Profile</span>
               </NavLink>
             </>
@@ -487,24 +143,23 @@ const DashBoardLayout = () => {
           {/* Chef Links */}
           {role === "chef" && (
             <>
-              <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-5 mb-2">
-                Chef Zone
+              <p className="px-2 text-xs text-gray-500 uppercase tracking-wide mt-3 mb-1">
+                Chef Workspace
               </p>
-
               <NavLink
                 to="/dashboard/request-order"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-               <FiGitPullRequest className="text-xl"/>
-                <span>Request Order</span>
+               <FiGitPullRequest className="text-lg"/>
+                <span>Order Requests</span>
               </NavLink>
               <NavLink
                 to="/dashboard/my-meals"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <GiMeal  className="text-xl"/>
+                <GiMeal className="text-lg"/>
                 <span>My Meals</span>
               </NavLink>
               <NavLink
@@ -512,35 +167,25 @@ const DashBoardLayout = () => {
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-               <GiFishCooked className="text-xl"/>
-                <span>Create Meals</span>
+               <GiFishCooked className="text-lg"/>
+                <span>Add New Meal</span>
               </NavLink>
-
               <NavLink
                 to="/dashboard/profile"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaUser className="text-xl" />
+                <FaUser className="text-lg" />
                 <span>Profile</span>
               </NavLink>
-
-              {/* <NavLink
-                to="/dashboard/completed-deliveries"
-                className={navLinkClasses}
-                onClick={closeSidebar}
-              >
-                <MdOutlineTaskAlt className="text-xl" />
-                <span>Completed Deliveries</span>
-              </NavLink> */}
             </>
           )}
 
           {/* Admin Links */}
           {role === "admin" && (
             <>
-              <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider mt-5 mb-2">
-                Admin Panel
+              <p className="px-2 text-xs text-gray-500 uppercase tracking-wide mt-3 mb-1">
+                Admin Controls
               </p>
               <NavLink
                 to="/dashboard/my-order"
@@ -555,7 +200,7 @@ const DashBoardLayout = () => {
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <MdOutlinePayment className="text-xl" />
+                <MdOutlinePayment className="text-lg" />
                 <span>Payment History</span>
               </NavLink>
               <NavLink
@@ -564,63 +209,58 @@ const DashBoardLayout = () => {
                 onClick={closeSidebar}
               >
                 <FaHamburger />
-                <span>Chef Request</span>
+                <span>Chef Approvals</span>
               </NavLink>
-
               <NavLink
                 to="/dashboard/users-management"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaUsers className="text-xl" />
-                <span>Users Management</span>
+                <FaUsers className="text-lg" />
+                <span>User Management</span>
               </NavLink>
-
               <NavLink
                 to="/dashboard/profile"
                 className={navLinkClasses}
                 onClick={closeSidebar}
               >
-                <FaUser className="text-xl" />
+                <FaUser className="text-lg" />
                 <span>Profile</span>
               </NavLink>
             </>
           )}
 
-          <div className="my-5 border-t border-gray-200"></div>
+          <div className="my-3 border-t"></div>
 
           {/* Home Link */}
           <NavLink to="/" className={navLinkClasses} onClick={closeSidebar}>
-            <FaHome className="text-xl" />
+            <FaHome className="text-lg" />
             <span>Home</span>
           </NavLink>
         </div>
 
         {/* User Profile / Logout (Bottom) */}
-        <div className="p-4 border-t border-gray-200 bg-gray-50/80">
-          <Link
-            to="/profile"
-            className="flex items-center gap-3 mb-4 px-2 hover:bg-gray-100 p-2 rounded-lg transition-colors group"
-          >
+        <div className="p-3 border-t">
+          <div className="flex items-center gap-2 mb-3">
             <img
               src={user?.photoURL || "https://i.ibb.co/1Jgq0jZ/user.png"}
               alt="Profile"
-              className="w-10 h-10 rounded-full border-2 border-white shadow-sm group-hover:border-yellow-200 transition-colors"
+              className="w-8 h-8 rounded-full"
             />
             <div className="overflow-hidden">
-              <h4 className="text-sm font-bold text-gray-800 truncate group-hover:text-yellow-600 transition-colors">
+              <h4 className="text-sm font-semibold text-gray-800 truncate">
                 {user?.displayName || "User"}
               </h4>
-              <span className="text-xs text-yellow-600 bg-yellow-100 px-2 py-0.5 rounded-full capitalize">
+              <span className="text-xs text-amber-600 bg-amber-100 px-1.5 py-0.5 rounded-full capitalize">
                 {role}
               </span>
             </div>
-          </Link>
+          </div>
           <button
             onClick={() => {
               logOut();
             }}
-            className="w-full flex items-center justify-center gap-2 bg-white border border-red-100 text-red-500 py-2.5 rounded-xl hover:bg-red-50 transition-colors font-medium text-sm"
+            className="w-full flex items-center justify-center gap-2 bg-gray-100 text-gray-700 py-2 rounded hover:bg-gray-200 text-sm"
           >
             <FaSignOutAlt />
             <span>Log Out</span>
@@ -631,46 +271,44 @@ const DashBoardLayout = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-h-screen overflow-hidden">
         {/* Mobile Header */}
-        <header className="lg:hidden h-16 bg-white/90 backdrop-blur-sm shadow-sm flex items-center justify-between px-4 z-30 sticky top-0">
-          <div className="flex items-center gap-3">
+        <header className="lg:hidden h-14 bg-white border-b flex items-center justify-between px-3 sticky top-0 z-30">
+          <div className="flex items-center gap-2">
             <button
               onClick={toggleSidebar}
-              className="text-gray-600 hover:text-yellow-600 p-2 rounded-lg hover:bg-yellow-50"
+              className="text-gray-600 hover:text-amber-600 p-1"
             >
-              <FaBars size={22} />
+              <FaBars size={20} />
             </button>
-            <span className="font-bold text-lg text-gray-800">Dashboard</span>
+            <span className="font-semibold text-gray-800">Dashboard</span>
           </div>
           <Link to="/">
-            <img src={logo} alt="Logo" className="w-8 h-8 rounded-full shadow-sm" />
+            <img src={logo} alt="Logo" className="w-7 h-7" />
           </Link>
         </header>
 
         {/* Content Area */}
-        <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 md:p-6 lg:p-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Breadcrumb / Title (Optional, visible on Desktop) */}
-            <div className="hidden lg:flex items-center justify-between mb-6 p-4 bg-white rounded-xl shadow-sm border border-gray-200">
+        <main className="flex-1 overflow-x-hidden overflow-y-auto p-3 md:p-5">
+          <div className="max-w-6xl mx-auto">
+            {/* Breadcrumb / Title */}
+            <div className="hidden lg:flex items-center justify-between mb-5 bg-white p-4 rounded-lg shadow-sm">
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">
-                  Welcome Back, <span className="text-yellow-500">{user?.displayName}</span>!
+                <h1 className="text-xl font-bold text-gray-800">
+                  Welcome back, {user?.displayName}!
                 </h1>
-                <p className="text-gray-500 text-sm mt-1">
-                  Here's what's happening with your account today.
+                <p className="text-gray-600 text-sm mt-1">
+                  Track your progress and manage your account
                 </p>
               </div>
-              <div className="text-sm text-gray-400 bg-gray-100 px-3 py-1.5 rounded-lg">
+              <div className="text-sm text-gray-500">
                 {new Date().toLocaleDateString("en-US", {
                   weekday: "long",
-                  year: "numeric",
-                  month: "long",
+                  month: "short",
                   day: "numeric",
                 })}
               </div>
             </div>
 
-            {/* Content Container */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 md:p-6">
+            <div className="bg-white rounded-lg shadow-sm p-3 md:p-4">
               <Outlet />
             </div>
           </div>

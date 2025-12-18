@@ -9,11 +9,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
 // Import images
-import img1 from '../../../assets/banner/img1.jpg';
-import img2 from '../../../assets/banner/img2.jpg';
-import img3 from '../../../assets/banner/img3.jpg';
+import img1 from '../../../assets/banner/banner1.avif';
+import img2 from '../../../assets/banner/banner2.avif';
+import img3 from '../../../assets/banner/banner3.jpeg';
 import img4 from '../../../assets/banner/img4.jpg';
-
 
 const Banner = () => {
     return (
@@ -40,18 +39,19 @@ const Banner = () => {
                         style={{ backgroundImage: `url(${img1})` }}
                     >
                         {/* Overlay */}
-                        <div className="absolute inset-0 bg-black/50 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/60 to-black/70 z-10"></div>
 
                         {/* Content */}
                         <div className="relative z-20 text-center text-white px-4">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                                Fresh Meals <span className="text-yellow-400">Delivered</span>
+                                Taste the <span className="text-yellow-400">Love</span> in Every Bite
                             </h2>
                             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
-                                Discover the joy of home-cooked goodness without the hassle. Fresh ingredients, masterful chefs, delivered to your door.
+                                Our local chefs pour their hearts into every dish, creating memories that taste like home. 
+                                Feel the warmth of home-cooked meals delivered with passion.
                             </p>
-                            <button className="btn btn-primary btn-lg text-white border-none bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105">
-                                Order Now
+                            <button className="btn btn-lg text-white border-none bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105 hover:shadow-yellow-500/50">
+                                Order Now & Taste Happiness
                             </button>
                         </div>
                     </div>
@@ -63,16 +63,17 @@ const Banner = () => {
                         className="w-full h-full bg-cover bg-center flex items-center justify-center relative"
                         style={{ backgroundImage: `url(${img2})` }}
                     >
-                        <div className="absolute inset-0 bg-black/50 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/60 to-black/70 z-10"></div>
                         <div className="relative z-20 text-center text-white px-4">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                                Taste the <span className="text-yellow-400">Difference</span>
+                                Stories Served <span className="text-yellow-400">Fresh</span>
                             </h2>
                             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
-                                Experience culinary perfection with our curated menu of local and international delicacies.
+                                Every recipe has a story, every chef has a dream. Taste the journey of local culinary artists 
+                                who cook with more than ingredients – they cook with their souls.
                             </p>
-                            <button className="btn btn-primary btn-lg text-white border-none bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105">
-                                View Menu
+                            <button className="btn btn-lg text-white border-none bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105 hover:shadow-yellow-500/50">
+                                Discover Their Stories
                             </button>
                         </div>
                     </div>
@@ -84,16 +85,17 @@ const Banner = () => {
                         className="w-full h-full bg-cover bg-center flex items-center justify-center relative"
                         style={{ backgroundImage: `url(${img3})` }}
                     >
-                        <div className="absolute inset-0 bg-black/50 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70 z-10"></div>
                         <div className="relative z-20 text-center text-white px-4">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                                Zero Waste <span className="text-yellow-400">Cooking</span>
+                                Cooked with <span className="text-yellow-400">Heart</span>, Not Just Hands
                             </h2>
                             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
-                                We believe in sustainability. Enjoy eco-friendly packaging and responsibly sourced ingredients.
+                                When love becomes the secret ingredient, every meal becomes special. 
+                                Experience the emotional connection that transforms simple ingredients into unforgettable moments.
                             </p>
-                            <button className="btn btn-primary btn-lg text-white border-none bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105">
-                                Learn More
+                            <button className="btn btn-lg text-white border-none bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105 hover:shadow-yellow-500/50">
+                                Feel the Love & Order
                             </button>
                         </div>
                     </div>
@@ -105,16 +107,17 @@ const Banner = () => {
                         className="w-full h-full bg-cover bg-center flex items-center justify-center relative"
                         style={{ backgroundImage: `url(${img4})` }}
                     >
-                        <div className="absolute inset-0 bg-black/50 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/60 to-black/70 z-10"></div>
                         <div className="relative z-20 text-center text-white px-4">
                             <h2 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">
-                                Chefs Special <span className="text-yellow-400">Everyday</span>
+                                Memories Made <span className="text-yellow-400">Delicious</span>
                             </h2>
                             <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto drop-shadow-md">
-                                New surprises await you daily with our rotating chef's specials.
+                                From family traditions to new adventures in taste, every dish carries emotions. 
+                                Let our chefs create beautiful food memories for you and your loved ones.
                             </p>
-                            <button className="btn btn-primary btn-lg text-white border-none bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105">
-                                Explore Specials
+                            <button className="btn btn-lg text-white border-none bg-yellow-500 hover:bg-yellow-600 px-8 py-3 rounded-full text-lg shadow-lg transform transition hover:scale-105 hover:shadow-yellow-500/50">
+                                Create Food Memories
                             </button>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router";
 import useAuth from "../../Hooks/useAuth";
 import useRole from "../../Hooks/useRole";
-import logo from "../../assets/logo.png";
+import logo from "/Logo.png";
 import {
   FaUserCircle,
   FaSignOutAlt,
@@ -58,11 +58,12 @@ const Navbar = () => {
       });
   };
 
+
   const navLinkStyles = ({ isActive }) =>
-    `text-lg font-medium transition-all duration-300 hover:text-orange-500 ${
+    `text-lg font-medium transition-all duration-300 hover:text-yellow-500 ${
       isActive
-        ? "text-orange-500 font-bold border-b-2 border-orange-500"
-        : "text-gray-700"
+        ? "text-yellow-500 font-bold border-b-2 border-yellow-500"
+        : scrolled ? "text-gray-700" : "text-white"
     }`;
 
   const links = (
@@ -97,58 +98,42 @@ const Navbar = () => {
     <div
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/70 backdrop-blur-lg shadow-sm border-b border-white/20 py-2"
-          : "bg-transparent py-4"
+          ? "bg-white/90 backdrop-blur-lg shadow-sm border-b border-gray-100 py-2"
+          : "bg-black py-4"
       }`}
     >
-      <div className="container bg-transparent mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-2 group">
           <img
             src={logo}
-            alt="ChefCorner Logo"
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-md transform transition group-hover:scale-110"
+            alt="Chef-Bazar Logo"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full shadow-md transform transition group-hover:scale-110 border-2 border-yellow-500"
           />
           <h2
             className={`text-2xl font-bold tracking-tight ${
-              scrolled ? "text-gray-800" : "text-gray-800"
+              scrolled ? "text-gray-800" : "text-white"
             }`}
           >
-            Chef<span className="text-orange-500">Corner</span>
+            <span className={scrolled ? "text-black" : "text-white"}>Chef-Bazar</span>
           </h2>
         </Link>
 
-        {/* Desktop Menu */}
+
         <div className="hidden lg:flex items-center gap-8">
           <ul className="flex items-center gap-8">{links}</ul>
         </div>
 
-        {/* Action Buttons & Profile */}
+     
         <div className="hidden lg:flex items-center gap-4">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-xl"
-          >
-            {theme === "light" ? (
-              <FaMoon className="text-gray-600" />
-            ) : (
-              <FaSun className="text-yellow-400" />
-            )}
-          </button>
-
-          {/* <Link
-            to={"/chef"}
-            className="px-5 py-2 rounded-full border border-orange-500 text-orange-600 font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300 shadow-sm"
-          >
-            Be a Chef
-          </Link> */}
+         
 
           {user ? (
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar border-2 border-orange-200"
+                className="btn btn-ghost btn-circle avatar border-2 border-yellow-500"
               >
                 <Link to={"/profile"} className="w-10 rounded-full">
                   <img
@@ -172,7 +157,7 @@ const Navbar = () => {
                       className={`text-xs px-2 py-0.5 rounded-full ${
                         status === "active"
                           ? "bg-green-100 text-green-600"
-                          : "bg-red-100 text-red-600"
+                          : "bg-yellow-100 text-yellow-600"
                       }`}
                     >
                       {status === "active" ? "Active" : "Inactive"}
@@ -182,7 +167,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/profile"
-                    className="flex items-center gap-2 py-2 text-gray-700 hover:text-orange-600"
+                    className="flex items-center gap-2 py-2 text-gray-700 hover:text-yellow-600"
                   >
                     <FaUserCircle /> Profile
                   </Link>
@@ -191,7 +176,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/dashboard"
-                    className="flex items-center gap-2 py-2 text-gray-700 hover:text-orange-600"
+                    className="flex items-center gap-2 py-2 text-gray-700 hover:text-yellow-600"
                   >
                     <FaTachometerAlt /> Dashboard
                   </Link>
@@ -212,7 +197,7 @@ const Navbar = () => {
           ) : (
             <Link
               to={"/login"}
-              className="btn btn-primary bg-orange-600 hover:bg-orange-700 border-none text-white px-6 rounded-full shadow-lg transform hover:-translate-y-0.5 transition-all"
+              className="btn bg-yellow-500 hover:bg-yellow-600 border-none text-white px-6 rounded-full shadow-lg transform hover:-translate-y-0.5 transition-all"
             >
               Login
             </Link>
@@ -223,7 +208,7 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-gray-800 focus:outline-none"
+            className={scrolled ? "text-gray-800" : "text-white focus:outline-none"}
           >
             {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
           </button>
@@ -239,7 +224,7 @@ const Navbar = () => {
             <li className="w-full text-center">
               <NavLink
                 to={"/"}
-                className="block py-2 text-lg font-medium text-gray-700 hover:text-orange-500"
+                className="block py-2 text-lg font-medium text-gray-700 hover:text-yellow-500"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
@@ -248,7 +233,7 @@ const Navbar = () => {
             <li className="w-full text-center">
               <NavLink
                 to={"/meals"}
-                className="block py-2 text-lg font-medium text-gray-700 hover:text-orange-500"
+                className="block py-2 text-lg font-medium text-gray-700 hover:text-yellow-500"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Meals
@@ -257,7 +242,7 @@ const Navbar = () => {
             <li className="w-full text-center">
               <NavLink
                 to={"/about"}
-                className="block py-2 text-lg font-medium text-gray-700 hover:text-orange-500"
+                className="block py-2 text-lg font-medium text-gray-700 hover:text-yellow-500"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About Us
@@ -265,7 +250,11 @@ const Navbar = () => {
             </li>
             {user && (
               <li>
-                <NavLink to={"/profile"} className={navLinkStyles}>
+                <NavLink 
+                  to={"/profile"} 
+                  className="block py-2 text-lg font-medium text-gray-700 hover:text-yellow-500"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   Profile
                 </NavLink>
               </li>
@@ -275,7 +264,7 @@ const Navbar = () => {
               <li className="w-full text-center">
                 <NavLink
                   to={"/dashboard"}
-                  className="block py-2 text-lg font-medium text-gray-700 hover:text-orange-500"
+                  className="block py-2 text-lg font-medium text-gray-700 hover:text-yellow-500"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Dashboard
@@ -298,13 +287,6 @@ const Navbar = () => {
                 </>
               )}
             </button>
-            {/* <Link
-              to={"/chef"}
-              className="btn btn-outline border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white w-full rounded-full"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Be a Chef
-            </Link> */}
             {user ? (
               <button
                 onClick={() => {
@@ -318,7 +300,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to={"/login"}
-                className="btn bg-orange-600 hover:bg-orange-700 text-white w-full rounded-full border-none"
+                className="btn bg-yellow-500 hover:bg-yellow-600 text-white w-full rounded-full border-none"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Login

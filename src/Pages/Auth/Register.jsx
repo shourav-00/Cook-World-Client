@@ -16,7 +16,7 @@ import {
   FaMapMarkerAlt,
   FaGoodreads,
 } from "react-icons/fa";
-import registerImg from "../../assets/banner/img1.avif"; // Using an existing image
+import registerImg from "../../assets/banner/img1.jpg"; // Using an existing image
 
 const Register = () => {
   const {

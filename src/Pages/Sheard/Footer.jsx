@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaHeart } from "react-icons/fa";
-import logo from '../../../public/Logo2 .png';
+import logo from '/Logo2.png'
 
 const Footer = () => {
   return (

@@ -61,7 +61,7 @@ const Profile = () => {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full bg-white rounded-xl shadow-2xl overflow-hidden transform transition-all hover:scale-[1.01] duration-300">
         {/* Header / Cover */}
-        <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-32 relative">
+        <div className="bg-yellow-500 h-32 relative">
           <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
             <div className="avatar">
               <div className="w-32 rounded-full ring ring-white ring-offset-base-100 ring-offset-2 overflow-hidden bg-white">
@@ -143,7 +143,7 @@ const Profile = () => {
               {role !== "admin" && role !== "chef" && (
                 <button
                   onClick={() => handleRequest("chef")}
-                  className="btn bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-500 hover:to-orange-700 text-white flex-1 border-none shadow-lg transform hover:-translate-y-1 transition-all"
+                  className="btn bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white flex-1 border-none shadow-lg transform hover:-translate-y-1 transition-all"
                 >
                   <FaUser className="mr-2" /> Be a Chef
                 </button>
@@ -152,7 +152,7 @@ const Profile = () => {
               {role !== "admin" && (
                 <button
                   onClick={() => handleRequest("admin")}
-                  className="btn bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white flex-1 border-none shadow-lg transform hover:-translate-y-1 transition-all"
+                  className="btn bg-gradient-to-r from-yellow-700 to-yellow-900 hover:from-gray-800 hover:to-black text-white flex-1 border-none shadow-lg transform hover:-translate-y-1 transition-all"
                 >
                   <FaIdBadge className="mr-2" /> Be an Admin
                 </button>

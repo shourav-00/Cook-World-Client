@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="min-h-screen bg-gray-50 mt-20">
             {/* Hero Section */}
-            <section className="relative py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+            <section className="relative py-20 bg-gradient-to-r bg-yellow-500 text-white">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-5xl font-bold mb-6">About ChefCorner</h1>
                     <p className="text-xl max-w-3xl mx-auto">

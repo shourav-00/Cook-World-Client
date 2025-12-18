@@ -52,7 +52,7 @@ const MyFavoriteMeals = () => {
     return (
         <div className="container mx-auto px-4 py-8 mt-16">
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-                My Favorite Meals <span className="text-orange-500">({favoriteMeals.length})</span>
+                My Favorite Meals <span className="text-yellow-500">({favoriteMeals.length})</span>
             </h2>
 
             {favoriteMeals.length === 0 ? (

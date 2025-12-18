@@ -17,15 +17,16 @@ const Home = () => {
       <section>
         <TopRatedMeals />
       </section>
-      <section>
-        <Testimonial />
-      </section>
+    
       <section>
         <WhyChooseUs />
       </section>
       <section>
         <CTAAction />
       </section>
+        {/* <section>
+        <Testimonial />
+      </section> */}
        <section className="my-10">
         <h1 className="font-bold text-center mb-8 text-5xl text-orange-400">
           Collaborate With{" "}
